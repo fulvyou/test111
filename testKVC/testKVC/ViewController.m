@@ -22,8 +22,10 @@
     
     //KVC的测试
     footballer *raul= [[footballer alloc] init];
-    raul.name = @"Raul";
+//    raul.name = @"Raul";
+    [raul setValue:@"Raul" forKey:@"name"];
     //    raul.no = 7;
+    
     
     footballer *beckham= [[footballer alloc] init];
     beckham.name = @"Beckham";
@@ -48,7 +50,10 @@
     NSArray *arr = [NSArray arrayWithObject:realMadrid.members];
     
     NSLog(@"\ncaptionName:[%@]", [realMadrid valueForKeyPath:@"captain.name"]);
+    /*@unionOfObjects：返回指定属性的值的数组，不去重
+     @distinctUnionOfObjects：返回指定属性去重后的值的数组*/
     NSLog(@"\nmembers:[%@]", [arr valueForKeyPath:@"@distinctUnionOfArrays.name"]);
+//    NSLog(@"\nmembers:[%@]", [arr valueForKeyPath:@"@unionOfArrays.name"]);
     NSLog(@"\ncaptionNo:[%@]", [realMadrid valueForKeyPath:@"captain.no"]);
     
     [raul release];
