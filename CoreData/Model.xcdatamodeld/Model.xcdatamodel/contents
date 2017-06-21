@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Club" representedClassName="Club" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="playerInfo" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <entity name="Coach" representedClassName="Coach" syncable="YES" codeGenerationType="class"/>
+    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="captainInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Staff" inverseName="newRelationship" inverseEntity="Staff" syncable="YES"/>
+        <relationship name="playerInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Club" inverseName="players" inverseEntity="Club" syncable="YES"/>
+    </entity>
+    <entity name="Staff" representedClassName="Staff" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="role" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="captainInfo" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Player" positionX="-1980" positionY="162" width="317" height="88"/>
+        <element name="Staff" positionX="-1523" positionY="333" width="128" height="88"/>
+        <element name="Club" positionX="-2099" positionY="449" width="128" height="73"/>
+        <element name="Coach" positionX="-1764" positionY="603" width="128" height="43"/>
+    </elements>
+</model>
